@@ -17,3 +17,4 @@
 - [Процедуры и функции в ассемблере](https://prog-cpp.ru/asm-proc/) + почитать примечания ЛР3
 - [Функции DOS прерывания 21h](http://www.codenet.ru/progr/dos/int_0026.php)
 - [Доступно о near и far для процедур](http://mf.grsu.by/UchProc/livak/arxiv_22102010/kursi/programming/lections/assm/proc.htm)
+- [ASCII table](http://www.asciitable.com/)
