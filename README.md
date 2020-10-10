@@ -20,3 +20,4 @@
 - [ASCII table](http://www.asciitable.com/)
 - [Команда MUL](http://av-assembler.ru/instructions/mul.php)
 - [Основы языка ассемблера доступным языком](http://natalia.appmat.ru/c&c++/assembler.html)
+- [Команды прерывания для установки видеорежима видеоадаптера (INT 10h)](https://ru.wikipedia.org/wiki/INT_10H)
