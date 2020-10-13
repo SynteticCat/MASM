@@ -19,8 +19,8 @@ SEGCODE SEGMENT PARA PUBLIC 'CODE'
 output proc near
 
     mov dl, byte ptr[string] ; считываем символ строки в dl
-    mov cl, byte ptr[print_cnt] ; считываем количество итераций
-    sub cx, "0" ; в cx поместили разность между cx и '0'???
+    mov cl, byte ptr[print_cnt] ; считываем количество итераций (код числа)
+    sub cx, "0" ; вычитаем из кода числа код нуля
 
     mov ah, 2 ; вывод dl на дисплей
     mov bx, 0 ; промежуточный регистр для смещения по строке
@@ -29,7 +29,7 @@ output proc near
         int 21h ; печать байта
         mov dl, 32
         int 21h ; печать пробела
-        add bx, 1
+        inc bx
         mov dl, byte ptr[string + bx] ; поместим следующий символ в dl
         loop symb_label
 

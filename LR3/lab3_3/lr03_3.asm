@@ -1,6 +1,6 @@
 SD1 SEGMENT para public 'DATA'
 	S1 db 'Y'
-	db 65535 - 2 dup (0)
+	db 65535 - 2 dup (0) ; размер и смещение влево на 2 байта
 SD1 ENDS
 
 SD2 SEGMENT para public 'DATA'
@@ -35,11 +35,15 @@ main:
 	mov dl, S1
 	call output
 
-assume DS:SD2 ;работает без assume
+assume DS:SD2
 	mov ax, SD2
 	mov ds, ax
 
+	; add ax, 01000h
+	; mov ds, ax
+
 	; вывод S2
+	; mov dl, ds:0000 ; что не так?!
 	mov dl, S2
 	call output
 
@@ -51,7 +55,7 @@ assume DS:SD3 ; что делает программа
 	mov dl, S3
 	call output
 
-	mov ax, 4c00h ; можно ли их убрать
+	mov ax, 4c00h
 	int 21h
 CSEG ENDS
 END main

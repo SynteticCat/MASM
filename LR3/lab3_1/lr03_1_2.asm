@@ -2,23 +2,23 @@ PUBLIC output_X
 EXTRN X: byte
 
 DS2 SEGMENT AT 0b800h ; разместить сегмент по адресу видеопамяти
-	CA LABEL byte ; метка CA
+	CA LABEL byte
 	ORG 80 * 2 * 2 + 2 * 2 ; 2 строки по 80 символов + 2 символа на третьей строке
-	SYMB LABEL word ; метка SYMB
+	SYMB LABEL word
 DS2 ENDS
 
 CSEG SEGMENT PARA PUBLIC 'CODE'
 	assume CS:CSEG, ES:DS2
 output_X proc near
-  ; сегментный адрес видеопамяти, ES:DI начало видеопамяти
+  ; ES:DI начало видеопамяти
 	mov ax, DS2
 	mov es, ax
 
-	mov ah, 10  ; записать символ с позиции курсора
+  ; атрибут и символ
+	mov ah, 10
+	mov al, X
 
-	mov al, X ; символ
-
-	mov symb, ax ; ?
+	mov symb, ax ; вывод
 	ret
 output_X endp
 CSEG ENDS
